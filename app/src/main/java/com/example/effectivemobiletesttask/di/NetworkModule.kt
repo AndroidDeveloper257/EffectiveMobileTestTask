@@ -2,6 +2,7 @@ package com.example.effectivemobiletesttask.di
 
 import android.content.Context
 import com.example.effectivemobiletesttask.networking.ApiService
+import com.example.effectivemobiletesttask.utils.NetworkHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,6 +61,14 @@ class NetworkModule {
         retrofit: Retrofit
     ): ApiService {
         return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNetworkHelper(
+        context: Context
+    ): NetworkHelper {
+        return NetworkHelper(context)
     }
 
 }
