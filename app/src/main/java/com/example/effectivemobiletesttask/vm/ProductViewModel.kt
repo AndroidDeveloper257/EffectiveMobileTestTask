@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.effectivemobiletesttask.models.ResponseData
+import com.example.effectivemobiletesttask.repository.FavoriteRepository
 import com.example.effectivemobiletesttask.repository.ProductRepository
 import com.example.effectivemobiletesttask.utils.ConsValues.NO_INTERNET
 import com.example.effectivemobiletesttask.utils.NetworkHelper
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProductViewModel @Inject constructor(
     private val productRepository: ProductRepository,
+    private val favoriteRepository: FavoriteRepository,
     private val networkHelper: NetworkHelper
 ) : ViewModel() {
 
@@ -39,5 +41,15 @@ class ProductViewModel @Inject constructor(
             }
         }
     }
+
+    fun saveItem(itemId: String) = favoriteRepository.saveItem(itemId)
+
+    fun unSaveItem(itemId: String) = favoriteRepository.unSaveItem(itemId)
+
+    fun listSavedItems() = favoriteRepository.listSavedItems()
+
+    fun countSavedItems() = favoriteRepository.countSavedItems()
+
+    fun isItemSaved(itemId: String) = favoriteRepository.isItemSaved(itemId)
 
 }

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.effectivemobiletesttask.R
 import com.example.effectivemobiletesttask.databinding.ProductItemBinding
 import com.example.effectivemobiletesttask.models.Item
 
@@ -28,6 +29,7 @@ class ProductAdapter(
                 } catch (e: Exception) {
                     infoLayout.visibility = View.GONE
                 }
+                productImagePager.adapter = ImageAdapter(emptyList())
             }
         }
     }
