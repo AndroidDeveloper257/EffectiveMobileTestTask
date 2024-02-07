@@ -9,8 +9,7 @@ import com.example.effectivemobiletesttask.database.entity.UserEntity
 
 @Database(
     entities = [UserEntity::class, ItemEntity::class],
-    version = 2,
-    exportSchema = false
+    version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
 

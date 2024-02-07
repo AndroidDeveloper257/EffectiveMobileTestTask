@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/registrationFragment">
 
     <fragment
         android:id="@+id/registrationFragment"
@@ -35,4 +35,14 @@
         android:name="com.example.effectivemobiletesttask.ui.PromotionFragment"
         android:label="fragment_promotion"
         tools:layout="@layout/fragment_promotion" />
+    <fragment
+        android:id="@+id/productInfoFragment"
+        android:name="com.example.effectivemobiletesttask.ui.ProductInfoFragment"
+        android:label="fragment_product_info"
+        tools:layout="@layout/fragment_product_info" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.effectivemobiletesttask.ui.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>

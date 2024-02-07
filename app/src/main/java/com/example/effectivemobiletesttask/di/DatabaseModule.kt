@@ -2,8 +2,6 @@ package com.example.effectivemobiletesttask.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.effectivemobiletesttask.database.AppDatabase
 import com.example.effectivemobiletesttask.database.dao.ItemDao
 import com.example.effectivemobiletesttask.database.dao.UserDao
@@ -20,22 +18,8 @@ class DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideMigration(): Migration {
-        return object : Migration(1, 2) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL(
-                    "CREATE TABLE IF NOT EXISTS `item_table` (" +
-                            "`item_id` TEXT NOT NULL PRIMARY KEY)"
-                )
-            }
-        }
-    }
-
-    @Provides
-    @Singleton
     fun provideAppDatabase(
-        @ApplicationContext context: Context,
-        migration: Migration
+        @ApplicationContext context: Context
     ): AppDatabase {
         return Room.databaseBuilder(
             context,
@@ -44,7 +28,6 @@ class DatabaseModule {
         )
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
-            .addMigrations(migration)
             .build()
     }
 

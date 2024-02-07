@@ -43,6 +43,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        if (navController.currentDestination?.id == R.id.registrationFragment ||
+            navController.currentDestination?.id == R.id.homeFragment ||
+            navController.currentDestination?.id == R.id.catalogFragment ||
+            navController.currentDestination?.id == R.id.cartFragment ||
+            navController.currentDestination?.id == R.id.promotionFragment ||
+            navController.currentDestination?.id == R.id.profileFragment
+        ) {
+            finishAffinity()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

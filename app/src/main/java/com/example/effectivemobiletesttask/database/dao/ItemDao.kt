@@ -20,4 +20,7 @@ interface ItemDao {
 
     @Delete
     fun deleteItem(itemEntity: ItemEntity)
+
+    @Query("DELETE FROM item_table")
+    fun clearTable()
 }

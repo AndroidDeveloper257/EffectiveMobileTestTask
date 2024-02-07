@@ -24,4 +24,6 @@ class FavoriteRepository @Inject constructor(
         return itemDao.getItems().contains(ItemEntity(itemId))
     }
 
+    fun clearTable() = itemDao.clearTable()
+
 }

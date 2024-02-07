@@ -26,45 +26,37 @@
 
         <ImageView
             android:id="@+id/favorite_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_margin="10dp"
             android:src="@drawable/ic_favorite_unselected"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/dot_tab_layout"
             android:layout_width="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/product_image_pager"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/product_image_pager"
+            app:tabGravity="center"
             app:layout_constraintLeft_toLeftOf="@id/product_image_pager"
             app:layout_constraintRight_toRightOf="@id/product_image_pager"
             app:tabBackground="@drawable/tab_pager_selector"
             app:tabIndicatorHeight="0dp"
-            app:tabMode="scrollable" />
+            app:tabPaddingEnd="8dp"
+            app:tabPaddingStart="8dp"
+            app:tabRippleColor="@android:color/transparent" />
 
-        <LinearLayout
+        <include
             android:id="@+id/price_layout"
+            layout="@layout/price_with_discount"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/slope_line"
-            android:backgroundTint="@color/element_light_grey"
-            android:paddingHorizontal="3dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/product_image_pager">
-
-            <TextView
-                android:id="@+id/price_tv"
-                style="@style/ElementText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="749 $"
-                android:textColor="@color/text_grey"
-                android:textSize="14sp" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/dot_tab_layout" />
 
         <TextView
             android:id="@+id/price_with_discount_tv"
